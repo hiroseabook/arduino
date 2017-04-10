@@ -5,7 +5,8 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   Serial.println("処理を開始");
-
+  pinMode(13, OUTPUT);
+  
   sizeNote = sizeof(notes) / sizeof(int);
   Normalize(4);
   Play();
@@ -29,6 +30,7 @@ void Play(){
   for( int i = 0; i < sizeNote; i++){
     int note = notes[i];
     Serial.println(note);
+
     TonePlay(note);
   }
 }
@@ -38,8 +40,12 @@ void TonePlay(int midiNum){
   Serial.println(freq);
   if(freq > 20){
     tone(8, freq);
+    digitalWrite(13, HIGH);
   }
-  delay(500);
+
+  delay(250);
+  digitalWrite(13, LOW);
+  delay(250);
   noTone(8);
 }
 
