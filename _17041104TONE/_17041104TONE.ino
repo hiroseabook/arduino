@@ -1,7 +1,7 @@
 void setup() {
   // put your setup code here, to run once:
   tone(8, 440);
-  delay(500);
+  delay(2000);
   noTone(8);
 }
 
